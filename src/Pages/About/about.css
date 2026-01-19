@@ -1,0 +1,6 @@
+.background{
+    background-image: url('../../assets/bg-pattern.png');
+    background-repeat: no-repeat;
+    background-size: cover; 
+    background-position: center;
+}
