@@ -18,7 +18,9 @@ If you are developing a production application, we recommend using TypeScript wi
 
 ## Installation ##
 
-1. 
+"npm install react-ripples-hover" For the animation hover button 
+"npm i -D daisyui@latest"
+
 ## ==================== ##
 
 ##  Mahmud Uz Zaman ##
