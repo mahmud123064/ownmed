@@ -20,6 +20,7 @@ If you are developing a production application, we recommend using TypeScript wi
 
 "npm install react-ripples-hover" For the animation hover button 
 "npm i -D daisyui@latest"
+"Daisy ui theme added"
 
 ## ==================== ##
 
