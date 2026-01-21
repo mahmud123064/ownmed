@@ -1,7 +1,12 @@
-import React from 'react'
+import { NavigationMenu } from '@/components/ui/navigation-menu';
+import React from 'react';
 
-export default function Navbar() {
+const Navbar = () => {
   return (
-    <div>This is navbar</div>
-  )
-}
+    <div>
+      
+    </div>
+  );
+};
+
+export default Navbar;
