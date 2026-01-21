@@ -1,3 +1,7 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+
 @import "tailwindcss";
 @import "tw-animate-css";
 @plugin "daisyui" {
@@ -8,8 +12,14 @@
   name: "ownMedTheme";
   default: true;
 
-  --color-primary: #2dc653;       
+  --color-primary: #207dff;       
   --color-secondary: #041c38;     
   --color-accent: #6c757d;        
   --color-base-content: #000000; 
+}
+
+@layer base {
+  html {
+    font-family: "Lato", sans-serif;
+  }
 }
