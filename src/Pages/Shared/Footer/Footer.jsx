@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
     return (
-        <div className="text-center pb-5 bg-black">
+        <div className="text-center pb-5 bg-[#207dff]">
             {/* Heading Started */}
             <h1 className="pt-[50px] font2 text-[#00a8e8] text-5xl mb-16 fontB">
                 OwnMed
