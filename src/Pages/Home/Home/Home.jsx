@@ -1,11 +1,12 @@
 import About from "@/Pages/About/About";
 import HealthBolletin from "../HealthBolletin/HealthBolletin";
 import Services from "../Services/Services";
+import Banner from "../Banner/Banner";
 
 export default function Home() {
     return (
         <div>
-            This is home
+            <Banner />
             <HealthBolletin />
             <div className="">
                 <About />
