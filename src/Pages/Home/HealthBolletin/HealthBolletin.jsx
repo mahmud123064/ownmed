@@ -14,7 +14,7 @@ export default function HealthBolletin() {
 ];
 
   return (
-    <div className="relative w-full overflow-hidden rounded-xl border bg-background py-3">
+    <div className="relative w-full overflow-hidden rounded-xl  bg-background py-3">
       
       {/* Left fade */}
       <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-20 bg-gradient-to-r from-white to-transparent dark:from-black" />

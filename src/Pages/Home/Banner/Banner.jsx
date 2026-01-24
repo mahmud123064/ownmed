@@ -47,7 +47,7 @@ const Banner = () => {
           <img
             src="https://i.ibb.co.com/ymgS8CHm/doctor.png"
             alt="Doctor"
-            className="w-80 md:w-full max-w-sm rounded-lg"
+            className="w-80 md:w-full max-w-sm rounded-lg shadow-lg my-5"
           />
         </div>
       </div>
