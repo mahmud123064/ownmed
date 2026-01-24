@@ -2,14 +2,14 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
     return (
-        <div className="text-center pb-5 bg-black">
+        <div className="text-center pb-5 bg-secondary">
             {/* Heading Started */}
-            <h1 className="pt-[50px] font2 text-[#00a8e8] text-5xl mb-16 fontB">
+            <h1 className="pt-[50px] text-primary text-5xl mb-16 font-bold">
                 OwnMed
             </h1>
             <div className="relative mb-16 ">
-                <hr className="w-72 -mt-12 border border-[#00a8e8] mx-auto " />
-                <p className="absolute -top-2  text-[#00a8e8] left-1/2 -translate-x-1/2 text-7xl rotate-12  font1">
+                <hr className="w-72 -mt-12 border border-primary mx-auto " />
+                <p className="absolute -top-2  text-primary left-1/2 -translate-x-1/2 text-7xl rotate-12 ">
                     "
                 </p>
             </div>
@@ -21,13 +21,13 @@ const Footer = () => {
             <form className="relative mx-auto px-5 mb-20 w-full sm:w-96 md:w-[500px] ">
                 {/* Subscribe Email */}
                 <input
-                    className="pl-6 h-10 w-full sm:w-96 md:w-[500px] bg-transparent border-2 border-[#00a8e8] input rounded-full text-white"
+                    className="pl-6 h-10 w-full sm:w-96 md:w-[500px] bg-transparent border-2 border-primary input rounded-full text-white"
                     type="email"
                     placeholder="Enter Your Email"
                 />
                 {/* Subscribe button */}
                 <button
-                    className="absolute -top-4 right-5 md:-right-5 drop-shadow-md transition-all duration-200 border-2 border-[#00a8e8] px-4 text-white sm:px-10 rounded-full text-lg font-bold py-1 mt-4 bg-[#00a8e8] hover:bg-purple-950 "
+                    className="absolute -top-4 right-5 md:-right-5 drop-shadow-md transition-all duration-200 border-2 border-primary px-4 text-white sm:px-10 rounded-full text-lg font-bold py-1 mt-4 bg-primary hover:bg-primary/80 "
                     type="submit"
                 >
                     Subscription
@@ -107,7 +107,7 @@ const Footer = () => {
                     </div>
                 </ul>
             </div>
-            <hr className="border-[#00a8e8] mb-4" />
+            <hr className="border-primary mb-4" />
 
             <p className="mb-4 textShadow text-white">
                 Copyright © {new Date().getFullYear()} || OwnMed

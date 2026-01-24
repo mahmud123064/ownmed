@@ -12,7 +12,7 @@ import {
 const ServiceCard = ({ icon, title, description }) => {
     return (
         <div
-            className={`p-8 rounded-xl transition-all duration-500 cursor-pointer bg-white text-gray-800 border border-gray-200 hover:bg-gradient-to-br hover:from-blue-600 hover:to-blue-700 hover:text-white hover:border-blue-600 hover:shadow-2xl hover:scale-110`}
+            className={`p-8 rounded-xl transition-all duration-500 cursor-pointer bg-white text-gray-800 border border-gray-200 hover:bg-gradient-to-br hover:bg-primary hover:to-blue-800 hover:text-white hover:border-blue-600 hover:shadow-2xl hover:scale-105`}
         >
             <div className="flex justify-center mb-4">
                 <div
@@ -74,8 +74,8 @@ export default function Services() {
                 {/* Title Section */}
                 <div className="text-center mb-14">
                     <div className="flex items-center justify-center mb-6">
-                        <hr className="w-12 mr-3 border-2 border-blue-500" />
-                        <h1 className="text-4xl font-bold text-blue-600 whitespace-nowrap">
+                        <hr className="w-12 mr-3 border-2 border-primary" />
+                        <h1 className="text-4xl font-bold text-primary whitespace-nowrap">
                             Meet Our Services
                         </h1>
                         <hr className="w-12 ml-3 border-2 border-blue-500" />

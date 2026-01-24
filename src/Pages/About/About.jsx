@@ -32,7 +32,7 @@ export default function About() {
                     {/* Section Title */}
                     <div className="flex items-center mb-4">
                         <hr className="w-10 mr-3 border-2 border-blue-500" />
-                        <h1 className="text-lg font-semibold text-blue-600">
+                        <h1 className="text-lg font-semibold text-primary">
                             Welcome To Our OwnMed
                         </h1>
                         <hr className="w-10 ml-3 border-2 border-blue-500" />
@@ -52,17 +52,17 @@ export default function About() {
                     {/* Bullet Points */}
                     <ul className="space-y-3 text-left mb-6">
                         <li className="flex items-center gap-2">
-                            <CheckCircle className="text-blue-500" size={20} />
+                            <CheckCircle className="text-primary" size={20} />
                             <span>
                                 Trusted doctors and healthcare providers
                             </span>
                         </li>
                         <li className="flex items-center gap-2">
-                            <CheckCircle className="text-blue-500" size={20} />
+                            <CheckCircle className="text-primary" size={20} />
                             <span>Easy appointment booking</span>
                         </li>
                         <li className="flex items-center gap-2">
-                            <CheckCircle className="text-blue-500" size={20} />
+                            <CheckCircle className="text-primary" size={20} />
                             <span>Family health tracking and support</span>
                         </li>
                     </ul>
@@ -70,7 +70,7 @@ export default function About() {
                     {/* Button */}
                     <Link
                         to="/"
-                        className="relative inline-flex items-center gap-2 overflow-hidden rounded-lg bg-blue-600 px-6 py-3 text-white font-medium transition hover:bg-blue-700 group"
+                        className="relative inline-flex items-center gap-2 overflow-hidden rounded-lg bg-primary px-6 py-3 text-white font-medium transition hover:bg-primary group"
                     >
                         <span className="relative z-10 flex items-center gap-2">
                             Learn More
