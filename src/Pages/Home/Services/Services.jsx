@@ -75,18 +75,18 @@ export default function Services() {
                 <div className="text-center mb-14">
                     <div className="flex items-center justify-center mb-6">
                         <hr className="w-12 mr-3 border-2 border-primary" />
-                        <h1 className="text-4xl font-bold text-primary whitespace-nowrap">
+                        <h1 className="text-lg md:text-4xl font-bold text-primary whitespace-nowrap">
                             Meet Our Services
                         </h1>
                         <hr className="w-12 ml-3 border-2 border-blue-500" />
                     </div>
-                    <p className="text-gray-600 text-lg max-w-2xl mx-auto leading-relaxed">
+                    <i className="text-gray-600 text-lg max-w-2xl mx-auto leading-relaxed">
                         We provide comprehensive healthcare solutions to help
                         you manage your wellness journey. From personal health
                         tracking to finding trusted medical professionals
                         nearby, our services are designed to make healthcare
                         more accessible and convenient.
-                    </p>
+                    </i>
                 </div>
 
                 {/* Services Grid */}

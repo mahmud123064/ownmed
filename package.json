@@ -24,6 +24,7 @@
     "react-ripples-hover": "^0.2.1",
     "react-router-dom": "^7.12.0",
     "sort-by": "^1.2.0",
+    "swiper": "^12.0.3",
     "tailwind-merge": "^3.4.0",
     "tailwindcss": "^4.1.18",
     "typewriter-effect": "^2.22.0"
