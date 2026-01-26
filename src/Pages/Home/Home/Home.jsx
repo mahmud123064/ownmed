@@ -3,6 +3,7 @@ import HealthBolletin from "../HealthBolletin/HealthBolletin";
 import Services from "../Services/Services";
 import Banner from "../Banner/Banner";
 import MeetOurDrs from "../MeetOurDrs/MeetOurDrs";
+import Testimonials from "../Testimonials/Testimonials";
 
 export default function Home() {
     return (
@@ -13,6 +14,7 @@ export default function Home() {
                 <About />
                 <Services />
                 <MeetOurDrs />
+                <Testimonials />
             </div>
         </div>
     );
