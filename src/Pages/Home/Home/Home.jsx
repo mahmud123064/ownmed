@@ -4,6 +4,7 @@ import Services from "../Services/Services";
 import Banner from "../Banner/Banner";
 import MeetOurDrs from "../MeetOurDrs/MeetOurDrs";
 import Testimonials from "../Testimonials/Testimonials";
+import OurHistory from "../OurHistory/OurHistory";
 
 export default function Home() {
     return (
@@ -15,6 +16,7 @@ export default function Home() {
                 <Services />
                 <MeetOurDrs />
                 <Testimonials />
+                <OurHistory />
             </div>
         </div>
     );
