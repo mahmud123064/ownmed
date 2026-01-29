@@ -1,6 +1,7 @@
 import "./about.css";
 import About1 from "@/assets/about_home_bg1.jpg";
 import About2 from "@/assets/about_home_bg2.jpg";
+import PrimaryButton from "@/components/ui/PrimaryButton/PrimaryButton";
 import { CheckCircle, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
@@ -68,7 +69,7 @@ export default function About() {
                     </ul>
 
                     {/* Button */}
-                    <Link
+                    {/* <Link
                         to="/"
                         className="relative inline-flex items-center gap-2 overflow-hidden rounded-lg bg-primary px-6 py-3 text-white font-medium transition hover:bg-primary group"
                     >
@@ -78,7 +79,10 @@ export default function About() {
                         </span>
 
                         <span className="absolute inset-0 bg-white/20 scale-0 rounded-full transition-transform duration-500 group-hover:scale-150" />
-                    </Link>
+                    </Link> */}
+
+                    <PrimaryButton />
+
                 </div>
             </div>
         </div>

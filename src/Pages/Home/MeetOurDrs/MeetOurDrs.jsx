@@ -7,6 +7,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { ArrowRight, Facebook, Linkedin, Mail, Twitter } from "lucide-react";
 import { Link } from "react-router-dom";
+import PrimaryButton from "@/components/ui/PrimaryButton/PrimaryButton";
 
 export default function MeetOurDrs() {
     const [swiperRef, setSwiperRef] = useState(null);
@@ -290,15 +291,9 @@ export default function MeetOurDrs() {
                     {/* Pagination Dots */}
                     <div className="swiper-pagination-custom flex justify-center gap-2 mt-8" />
                 </div>
-
-                {/* Find More Button */}
-                {/* <div className="text-center mt-12">
-                    <button className="px-8 py-3 bg-primary text-white font-semibold rounded-lg hover:bg-primary transition-colors duration-300 shadow-lg hover:shadow-xl">
-                        Find More Doctors
-                    </button>
-                </div> */}
+                
                 <div className="text-center mt-12">
-                    <Link
+                    {/* <Link
                         to="/"
                         className="relative inline-flex items-center gap-2 overflow-hidden rounded-lg bg-primary px-6 py-3 text-white font-medium transition hover:bg-primary group"
                     >
@@ -308,7 +303,8 @@ export default function MeetOurDrs() {
                         </span>
 
                         <span className="absolute inset-0 bg-white/20 scale-0 rounded-full transition-transform duration-500 group-hover:scale-150" />
-                    </Link>
+                    </Link> */}
+                    <PrimaryButton />
                 </div>
             </div>
 
