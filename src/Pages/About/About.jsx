@@ -81,8 +81,9 @@ export default function About() {
                         <span className="absolute inset-0 bg-white/20 scale-0 rounded-full transition-transform duration-500 group-hover:scale-150" />
                     </Link> */}
 
-                    <PrimaryButton />
-
+                    <Link to="/about-us">
+                        <PrimaryButton />
+                    </Link>
                 </div>
             </div>
         </div>
