@@ -1,5 +1,6 @@
 import RootLayout from "@/Layout/RootLayout";
 import AboutUs from "@/Pages/AboutUs/AboutUs";
+import SignUp from "@/Pages/Authentication/Signup/SignUp";
 import HealthTips from "@/Pages/HealthTips/HealthTips";
 import Home from "@/Pages/Home/Home/Home";
 
@@ -23,6 +24,10 @@ const routes = createBrowserRouter([
       {
         path:"/health-tips",
         Component:HealthTips
+      },
+      {
+        path:"/sign-up",
+        Component:SignUp
       }
 
     ]
