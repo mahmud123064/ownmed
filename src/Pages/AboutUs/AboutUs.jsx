@@ -1,53 +1,58 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import PrimaryButton from "@/components/ui/PrimaryButton/PrimaryButton";
-import { Users, Heart, Target, Award } from "lucide-react";
+import {
+    Users,
+    Heart,
+    Target,
+    Award,
+    LayoutDashboard,
+    Stethoscope,
+    Hospital,
+    HousePlus,
+} from "lucide-react";
 
 const AboutUs = () => {
     const values = [
         {
-            icon: Heart,
-            title: "Patient-Centered Care",
+            icon: LayoutDashboard,
+            title: "Dashboard",
             description:
-                "We prioritize the health and well-being of every patient with compassion and dedication.",
+                "A centralized view of appointments, medications, prescriptions, and health updates in one place.",
         },
         {
-            icon: Target,
-            title: "Excellence",
+            icon: Stethoscope,
+            title: "Doctor",
             description:
-                "We strive for excellence in every aspect of our medical services and patient care.",
+                "A centralized view of doctors, specialties, availability, and appointment management.",
         },
         {
-            icon: Users,
-            title: "Teamwork",
+            icon: Hospital,
+            title: "Hospital",
             description:
-                "Our experienced team of healthcare professionals works together to deliver the best outcomes.",
+                "A centralized view of hospitals, services, locations, and healthcare facilities.",
         },
         {
-            icon: Award,
-            title: "Innovation",
+            icon: HousePlus,
+            title: "pharmacy",
             description:
-                "We embrace modern medical technology and practices to improve patient care quality.",
+                "A centralized view of pharmacies, prescriptions, medicines, and medication-related information.",
         },
     ];
 
     const timeline = [
         {
-            year: "2000",
+            year: "2024",
             milestone:
                 "Founded our first clinic with a vision to provide quality healthcare",
         },
         {
-            year: "2008",
-            milestone: "Expanded to 5 locations across the region",
-        },
-        {
-            year: "2015",
+            year: "2025",
             milestone:
                 "Achieved international healthcare certification standards",
         },
         {
-            year: "2023",
+            year: "2026",
             milestone: "Reached milestone of 5,100+ satisfied patients",
         },
     ];
@@ -205,7 +210,7 @@ const AboutUs = () => {
                                     A Legacy of Excellence in Healthcare
                                 </h2>
                                 <p className="text-gray-600 text-lg leading-relaxed">
-                                    HealthOxiniox is a modern health-based web
+                                    OwnMed is a modern health-based web
                                     platform designed to simplify and improve
                                     the way people manage their healthcare.
                                     Built with innovation and trust at its core,
@@ -213,7 +218,7 @@ const AboutUs = () => {
                                     informed, and connected throughout their
                                     healthcare journey. With 3 years of
                                     experience and the trust of over 1,100 happy
-                                    patients, HealthOxiniox provides a reliable
+                                    patients, OwnMed provides a reliable
                                     digital solution for everyday health needs —
                                     from medicine tracking to doctor
                                     appointments and healthcare service

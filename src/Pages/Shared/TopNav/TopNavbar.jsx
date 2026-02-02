@@ -19,7 +19,7 @@ const TopNavbar = () => {
 
     return (
         <div>
-            <div className='flex justify-between items-center px-4 py-2 bg-[#68d6ce] text-white'>
+            <div className='flex justify-between items-center px-4 py-2 bg-[#68d6ce] text-white '>
                 <div className='flex gap-2 items-center'><FiMail className='text-xl' /> mail@ownmed.com</div>
                 <div className='flex gap-2 items-center'><MdAddLocation className='text-xl'/> {location}</div>
             </div>
