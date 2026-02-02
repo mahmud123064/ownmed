@@ -1,5 +1,6 @@
 import RootLayout from "@/Layout/RootLayout";
 import AboutUs from "@/Pages/AboutUs/AboutUs";
+import HealthTips from "@/Pages/HealthTips/HealthTips";
 import Home from "@/Pages/Home/Home/Home";
 
 import {
@@ -18,6 +19,10 @@ const routes = createBrowserRouter([
       {
         path:"/about-us",
         Component:AboutUs
+      },
+      {
+        path:"/health-tips",
+        Component:HealthTips
       }
 
     ]
