@@ -1,4 +1,4 @@
-import PrimaryButton from "@/components/ui/PrimaryButton/PrimaryButton";
+import PrimaryButton from "@/components/PrimaryButton/PrimaryButton";
 
 export default function OurHistory() {
     return (

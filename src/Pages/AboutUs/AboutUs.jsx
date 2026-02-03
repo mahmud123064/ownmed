@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import PrimaryButton from "@/components/ui/PrimaryButton/PrimaryButton";
+import PrimaryButton from "@/components/PrimaryButton/PrimaryButton";
 import {
     Users,
     Heart,

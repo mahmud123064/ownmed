@@ -3,14 +3,14 @@ import { Eye, EyeOff, Upload, X, ChevronDown } from "lucide-react";
 import { Link } from "react-router-dom";
 import signUpIllustration from "../../../assets/signup-illustration.jpg";
 
-
 export default function SignUp() {
- 
     const [imagePreview, setImagePreview] = useState(null);
     const [showPassword, setShowPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
     const [errors, setErrors] = useState({});
     const [isLoading, setIsLoading] = useState(false);
+
+    const [imageFile, setImageFile] = useState(null);
 
     const [formData, setFormData] = useState({
         name: "",
@@ -18,6 +18,7 @@ export default function SignUp() {
         password: "",
         confirmPassword: "",
         phone: "",
+        role: "",
     });
 
     const handleInputChange = (e) => {
@@ -44,30 +45,59 @@ export default function SignUp() {
 
     const handleImageUpload = (e) => {
         const file = e.target.files?.[0];
-        if (file) {
-            // Validate file is an image
-            if (!file.type.startsWith("image/")) {
-                setErrors((prev) => ({
-                    ...prev,
-                    image: "Please upload a valid image file",
-                }));
-                return;
-            }
 
-            const reader = new FileReader();
-            reader.onload = (event) => {
-                setImagePreview(event.target?.result);
-                setErrors((prev) => ({
-                    ...prev,
-                    image: "",
-                }));
-            };
-            reader.readAsDataURL(file);
+        if (!file) return;
+
+        // Type validation
+        if (!file.type.startsWith("image/")) {
+            setErrors((prev) => ({
+                ...prev,
+                image: "Please upload a valid image file",
+            }));
+            return;
         }
+
+        // Size validation (5MB)
+        if (file.size > 5 * 1024 * 1024) {
+            setErrors((prev) => ({
+                ...prev,
+                image: "Image size must be less than 5MB",
+            }));
+            return;
+        }
+
+        setImageFile(file);
+
+        const reader = new FileReader();
+        reader.onload = () => {
+            setImagePreview(reader.result);
+            setErrors((prev) => ({ ...prev, image: "" }));
+        };
+        reader.readAsDataURL(file);
     };
+
+    // const removeImage = () => {
+    //     setImagePreview(null);
+    // };
 
     const removeImage = () => {
         setImagePreview(null);
+        setImageFile(null);
+    };
+
+    const handleRoleChange = (e) => {
+        setFormData((prev) => ({
+            ...prev,
+            role: e.target.value,
+        }));
+
+        // Clear role error after selection
+        if (errors.role) {
+            setErrors((prev) => ({
+                ...prev,
+                role: "",
+            }));
+        }
     };
 
     const validateForm = () => {
@@ -81,6 +111,10 @@ export default function SignUp() {
             newErrors.email = "Email is required";
         } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
             newErrors.email = "Please enter a valid email address";
+        }
+
+        if (!formData.role) {
+            newErrors.role = "Please Select a Role";
         }
 
         if (!formData.password) {
@@ -101,10 +135,13 @@ export default function SignUp() {
             newErrors.phone = "Phone number must be at least 9 digits";
         }
 
+        if (!imageFile) {
+            newErrors.image = "Profile picture is required";
+        }
+
         setErrors(newErrors);
         return Object.keys(newErrors).length === 0;
     };
-
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -118,8 +155,19 @@ export default function SignUp() {
         // Simulate API call
         setTimeout(() => {
             console.log("Form submitted:", formData, "Image:", imagePreview);
+            // Reset form
+            setFormData({
+                name: "",
+                email: "",
+                password: "",
+                confirmPassword: "",
+                phone: "",
+                role: "",
+            });
+
+            setImagePreview(null);
+            setErrors({});
             setIsLoading(false);
-            // Handle successful submission here
         }, 1000);
     };
 
@@ -129,7 +177,7 @@ export default function SignUp() {
                 {/* Left Side - Illustration */}
                 <div className="hidden md:flex flex-col justify-center items-center">
                     <div className="relative w-full max-w-md">
-                        <div className="absolute -inset-4 bg-gradient-to-r from-teal-200/30 to-blue-200/30 rounded-2xl blur-xl"></div>
+                        <div className="absolute -inset-4 bg-gradient-to-r from-primary/30 to-blue-200/30 rounded-2xl blur-xl"></div>
                         <img
                             src={signUpIllustration}
                             alt="Healthcare professional consulting with patient"
@@ -230,6 +278,48 @@ export default function SignUp() {
                                         className="text-red-600 text-sm mt-1.5 font-medium"
                                     >
                                         {errors.email}
+                                    </p>
+                                )}
+                            </div>
+
+                            {/* Role  */}
+                            <div>
+                                <label
+                                    htmlFor="role"
+                                    className="block text-sm font-semibold text-gray-800 mb-2"
+                                >
+                                    Select a Role
+                                </label>
+
+                                <select
+                                    id="role"
+                                    name="role"
+                                    value={formData.role}
+                                    onChange={handleRoleChange}
+                                    className={`w-full px-4 py-2.5 rounded-lg border-2 transition-all duration-200 focus:outline-none font-medium ${
+                                        errors.role
+                                            ? "border-red-300 bg-red-50 focus:border-red-500 focus:ring-1 focus:ring-primary"
+                                            : "border-gray-200 bg-gray-50 focus:border-primary focus:ring-1 focus:ring-primary"
+                                    }`}
+                                >
+                                    {/* Placeholder */}
+                                    <option value="" disabled>
+                                        Please Select a Role
+                                    </option>
+
+                                    <option value="user">User</option>
+                                    <option value="doctor">Doctor</option>
+                                    <option value="hospital_owner">
+                                        Hospital Owner
+                                    </option>
+                                    <option value="pharmacy_owner">
+                                        Pharmacy Owner
+                                    </option>
+                                </select>
+
+                                {errors.role && (
+                                    <p className="mt-1 text-sm text-red-600">
+                                        {errors.role}
                                     </p>
                                 )}
                             </div>
@@ -437,7 +527,6 @@ export default function SignUp() {
                                     Phone Number
                                 </label>
                                 <div className="flex gap-3">
-                                   
                                     {/* Phone Input */}
                                     <div className="flex-1">
                                         <input
@@ -493,7 +582,6 @@ export default function SignUp() {
                                 >
                                     Sign In
                                 </Link>
-
                             </p>
                         </div>
                     </div>
