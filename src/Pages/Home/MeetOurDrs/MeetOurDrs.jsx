@@ -7,7 +7,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { ArrowRight, Facebook, Linkedin, Mail, Twitter } from "lucide-react";
 import { Link } from "react-router-dom";
-import PrimaryButton from "@/components/ui/PrimaryButton/PrimaryButton";
+import PrimaryButton from "@/components/PrimaryButton/PrimaryButton";
 
 export default function MeetOurDrs() {
     const [swiperRef, setSwiperRef] = useState(null);

@@ -1,7 +1,7 @@
 import "./about.css";
 import About1 from "@/assets/about_home_bg1.jpg";
 import About2 from "@/assets/about_home_bg2.jpg";
-import PrimaryButton from "@/components/ui/PrimaryButton/PrimaryButton";
+import PrimaryButton from "@/components/PrimaryButton/PrimaryButton";
 import { CheckCircle, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
