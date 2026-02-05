@@ -12,7 +12,9 @@
   "dependencies": {
     "@radix-ui/react-navigation-menu": "^1.2.14",
     "@radix-ui/react-slot": "^1.2.4",
+    "@reduxjs/toolkit": "^2.11.2",
     "@tailwindcss/vite": "^4.1.18",
+    "bcryptjs": "^3.0.3",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "localforage": "^1.10.0",
@@ -23,6 +25,7 @@
     "react-dom": "^19.2.0",
     "react-hook-form": "^7.71.1",
     "react-icons": "^5.5.0",
+    "react-redux": "^9.2.0",
     "react-ripples-hover": "^0.2.1",
     "react-router-dom": "^7.12.0",
     "sort-by": "^1.2.0",

@@ -6,8 +6,14 @@ import { Label } from "@/components/ui/label";
 import { Link } from "react-router-dom";
 import signUpIllustration from "../../../assets/signup-illustration.jpg";
 import { useForm } from "react-hook-form";
+// import bcrypt from "bcryptjs";
+
+
 
 export default function SignIn() {
+
+
+
     const [isLoading, setIsLoading] = useState(false);
 
     const {
@@ -81,7 +87,11 @@ export default function SignIn() {
                                                 "Enter a valid email address",
                                         },
                                     })}
-                                    className="pl-10 bg-background border border-input focus:border-primary focus:ring-2 focus:ring-primary/20"
+                                     className={`w-full pl-10 py-2.5 rounded-lg border-2 transition-all duration-200 focus:outline-none font-medium ${
+                                        errors.email
+                                            ? "border-red-300 bg-red-50 focus:border-red-500 focus:ring-1 focus:ring-primary"
+                                            : "border-gray-200 bg-gray-50 focus:border-primary focus:ring-1 focus:ring-primary"
+                                    }`}
                                 />
                             </div>
                             {errors.email && (
@@ -113,7 +123,11 @@ export default function SignIn() {
                                                 "Password must be at least 8 characters",
                                         },
                                     })}
-                                    className="pl-10"
+                                   className={`w-full pl-10 py-2.5 rounded-lg border-2 transition-all duration-200 focus:outline-none font-medium ${
+                                        errors.email
+                                            ? "border-red-300 bg-red-50 focus:border-red-500 focus:ring-1 focus:ring-primary"
+                                            : "border-gray-200 bg-gray-50 focus:border-primary focus:ring-1 focus:ring-primary"
+                                    }`}
                                 />
                             </div>
                             {errors.password && (
