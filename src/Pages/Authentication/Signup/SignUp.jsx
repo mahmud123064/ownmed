@@ -21,6 +21,7 @@ export default function SignUp() {
         role: "",
     });
 
+    // Handle input changes for text fields and phone number with numeric validation
     const handleInputChange = (e) => {
         const { name, value } = e.target;
 
@@ -34,7 +35,6 @@ export default function SignUp() {
             [name]: value,
         }));
 
-        // Clear error for this field when user starts typing
         if (errors[name]) {
             setErrors((prev) => ({
                 ...prev,
@@ -42,6 +42,34 @@ export default function SignUp() {
             }));
         }
     };
+
+    // upload image to cloudinary and return the URL
+    const uploadImageToCloudinary = async () => {
+        if (!imageFile)
+         return null;
+
+        const formData = new FormData();
+        formData.append("file", imageFile);
+        formData.append("upload_preset", "profile_upload");
+
+        try {
+            const res = await fetch(
+                "https://api.cloudinary.com/v1_1/dhksln9ks/image/upload",
+                {
+                    method: "POST",
+                    body: formData,
+                },
+            );
+
+            const data = await res.json();
+            return data.secure_url;
+        } catch (error) {
+            console.error("Upload failed:", error);
+            return null;
+        }
+    };
+
+    // Handle image selection and preview
 
     const handleImageUpload = (e) => {
         const file = e.target.files?.[0];
@@ -76,15 +104,13 @@ export default function SignUp() {
         reader.readAsDataURL(file);
     };
 
-    // const removeImage = () => {
-    //     setImagePreview(null);
-    // };
-
+    // Remove selected image
     const removeImage = () => {
         setImagePreview(null);
         setImageFile(null);
     };
 
+    // Handle role selection
     const handleRoleChange = (e) => {
         setFormData((prev) => ({
             ...prev,
@@ -100,6 +126,7 @@ export default function SignUp() {
         }
     };
 
+    // Form validation
     const validateForm = () => {
         const newErrors = {};
 
@@ -143,19 +170,38 @@ export default function SignUp() {
         return Object.keys(newErrors).length === 0;
     };
 
+
+    // Form submission
+   
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        if (!validateForm()) {
-            return;
-        }
+        if (!validateForm()) return;
 
         setIsLoading(true);
 
-        // Simulate API call
+        // 🔥 Upload image to Cloudinary
+        const imageUrl = await uploadImageToCloudinary();
+
+        if (!imageUrl) {
+            setErrors((prev) => ({
+                ...prev,
+                image: "Image upload failed. Please try again.",
+            }));
+            setIsLoading(false);
+            return;
+        }
+
+        // ✅ Send this data to backend
+        const payload = {
+            ...formData,
+            profileImage: imageUrl,
+        };
+
+        console.log("Final payload:", payload);
+
+        // Simulate API
         setTimeout(() => {
-            console.log("Form submitted:", formData, "Image:", imagePreview);
-            // Reset form
             setFormData({
                 name: "",
                 email: "",
@@ -166,6 +212,7 @@ export default function SignUp() {
             });
 
             setImagePreview(null);
+            setImageFile(null);
             setErrors({});
             setIsLoading(false);
         }, 1000);
