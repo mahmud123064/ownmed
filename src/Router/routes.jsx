@@ -27,11 +27,11 @@ const routes = createBrowserRouter([
         Component:HealthTips
       },
       {
-        path:"/sign-up",
+        path:"/signup",
         Component:SignUp
       },
       {
-        path:"/sign-in",
+        path:"/login",
         Component:SignIn
       }
 

@@ -193,7 +193,7 @@ export default function SignIn() {
                     <p className="text-center text-sm text-muted-foreground">
                         Don't have an account?{" "}
                         <Link
-                            to="/sign-up"
+                            to="/signup"
                             className="text-primary font-semibold hover:underline"
                         >
                             Sign up

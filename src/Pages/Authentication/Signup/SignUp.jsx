@@ -1,16 +1,24 @@
 import { useState } from "react";
 import { Eye, EyeOff, Upload, X, ChevronDown } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import signUpIllustration from "../../../assets/signup-illustration.jpg";
+import { useDispatch, useSelector } from "react-redux";
+import { registerUser } from "../../../redux/auth/authSlice";
 
 export default function SignUp() {
     const [imagePreview, setImagePreview] = useState(null);
     const [showPassword, setShowPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
     const [errors, setErrors] = useState({});
-    const [isLoading, setIsLoading] = useState(false);
+    // const [isLoading, setIsLoading] = useState(false);
+
+    // replace with redux state
+    const dispatch = useDispatch();
+    const { isLoading, error } = useSelector((state) => state.auth);
 
     const [imageFile, setImageFile] = useState(null);
+
+    const navigate = useNavigate();
 
     const [formData, setFormData] = useState({
         name: "",
@@ -45,8 +53,7 @@ export default function SignUp() {
 
     // upload image to cloudinary and return the URL
     const uploadImageToCloudinary = async () => {
-        if (!imageFile)
-         return null;
+        if (!imageFile) return null;
 
         const formData = new FormData();
         formData.append("file", imageFile);
@@ -170,52 +177,42 @@ export default function SignUp() {
         return Object.keys(newErrors).length === 0;
     };
 
-
     // Form submission
-   
     const handleSubmit = async (e) => {
         e.preventDefault();
 
         if (!validateForm()) return;
 
-        setIsLoading(true);
-
-        // 🔥 Upload image to Cloudinary
         const imageUrl = await uploadImageToCloudinary();
-
         if (!imageUrl) {
             setErrors((prev) => ({
                 ...prev,
                 image: "Image upload failed. Please try again.",
             }));
-            setIsLoading(false);
             return;
         }
 
-        // ✅ Send this data to backend
         const payload = {
             ...formData,
             profileImage: imageUrl,
         };
 
-        console.log("Final payload:", payload);
-
-        // Simulate API
-        setTimeout(() => {
-            setFormData({
-                name: "",
-                email: "",
-                password: "",
-                confirmPassword: "",
-                phone: "",
-                role: "",
+        dispatch(registerUser(payload))
+            .unwrap()
+            .then(() => {
+                setFormData({
+                    name: "",
+                    email: "",
+                    password: "",
+                    confirmPassword: "",
+                    phone: "",
+                    role: "",
+                });
+                setImagePreview(null);
+                setImageFile(null);
+                setErrors({});
+                navigate("/login");
             });
-
-            setImagePreview(null);
-            setImageFile(null);
-            setErrors({});
-            setIsLoading(false);
-        }, 1000);
     };
 
     return (
@@ -624,7 +621,7 @@ export default function SignUp() {
                             <p className="text-gray-600">
                                 Already have an account?{" "}
                                 <Link
-                                    href="/signin"
+                                    to="/login"
                                     className="font-semibold text-primary hover:text-primary/70 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-teal-500 rounded px-1"
                                 >
                                     Sign In
