@@ -25,7 +25,7 @@ export default function Navbar() {
     const accountMenuItems = [
         { label: "Profile", icon: UserRound, to: "/profile" },
         { label: "Dashboard", icon: LayoutDashboard, to: "/dashboard" },
-        { label: "Sign In", icon: LogIn, to: "/sign-in" },
+        { label: "Login", icon: LogIn, to: "/login" },
         { label: "Logout", icon: LogOut, to: "/logout" },
     ];
 
