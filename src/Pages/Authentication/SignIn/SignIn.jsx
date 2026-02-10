@@ -3,18 +3,18 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import signUpIllustration from "../../../assets/signup-illustration.jpg";
 import { useForm } from "react-hook-form";
-// import bcrypt from "bcryptjs";
-
-
+import { useDispatch, useSelector } from "react-redux";
+import { loginUser } from "@/redux/auth/authSlice";
+import { ToastContainer, toast } from 'react-toastify';
 
 export default function SignIn() {
-
-
-
-    const [isLoading, setIsLoading] = useState(false);
+    // const [isLoading, setIsLoading] = useState(false);
+    const dispatch = useDispatch();
+    const { isLoading, error } = useSelector((state) => state.auth);
+    const navigate = useNavigate();
 
     const {
         register,
@@ -23,15 +23,26 @@ export default function SignIn() {
         reset,
     } = useForm();
 
-    const onSubmit = async (data) => {
-        setIsLoading(true);
+    const onSubmit = (data) => {
         console.log("Form Data:", data);
-
-        // simulate API call
-        setTimeout(() => {
-            setIsLoading(false);
-            reset();
-        }, 1000);
+        dispatch(loginUser(data))
+            .unwrap()
+            .then(() => {
+               toast.success('🦄 Wow so easy!', {
+position: "top-center",
+autoClose: 5000,
+hideProgressBar: false,
+closeOnClick: false,
+pauseOnHover: true,
+draggable: true,
+progress: undefined,
+theme: "light",
+// transition: Bounce,
+});
+                reset();
+                navigate("/");
+            })
+            .catch(() => {});
     };
 
     const handleGoogleSignIn = () => {
@@ -87,7 +98,7 @@ export default function SignIn() {
                                                 "Enter a valid email address",
                                         },
                                     })}
-                                     className={`w-full pl-10 py-2.5 rounded-lg border-2 transition-all duration-200 focus:outline-none font-medium ${
+                                    className={`w-full pl-10 py-2.5 rounded-lg border-2 transition-all duration-200 focus:outline-none font-medium ${
                                         errors.email
                                             ? "border-red-300 bg-red-50 focus:border-red-500 focus:ring-1 focus:ring-primary"
                                             : "border-gray-200 bg-gray-50 focus:border-primary focus:ring-1 focus:ring-primary"
@@ -123,7 +134,7 @@ export default function SignIn() {
                                                 "Password must be at least 8 characters",
                                         },
                                     })}
-                                   className={`w-full pl-10 py-2.5 rounded-lg border-2 transition-all duration-200 focus:outline-none font-medium ${
+                                    className={`w-full pl-10 py-2.5 rounded-lg border-2 transition-all duration-200 focus:outline-none font-medium ${
                                         errors.email
                                             ? "border-red-300 bg-red-50 focus:border-red-500 focus:ring-1 focus:ring-primary"
                                             : "border-gray-200 bg-gray-50 focus:border-primary focus:ring-1 focus:ring-primary"
@@ -198,6 +209,11 @@ export default function SignIn() {
                         >
                             Sign up
                         </Link>
+                        {error && (
+                            <p className="text-red-600 text-sm text-center">
+                                {error}
+                            </p>
+                        )}
                     </p>
                 </div>
             </div>

@@ -36,6 +36,7 @@ const initialState = {
   error: null,
 };
 
+// simulate API call for user signup
 export const registerUser = createAsyncThunk(
   "auth/signup",
   async (payload, { rejectWithValue }) => {
@@ -53,6 +54,25 @@ export const registerUser = createAsyncThunk(
   }
 );
 
+// simulate API call for user login
+export const loginUser = createAsyncThunk(
+  "auth/login",
+  async (payload, { rejectWithValue }) => {
+    try {
+      const res = await axios.post(
+        "http://localhost:3000/api/auth/login",
+        payload
+      );
+      return res.data; // { token, user }
+    } catch (err) {
+      return rejectWithValue(
+        err.response?.data?.message || "Login failed"
+      );
+    }
+  }
+);
+
+
 const authSlice = createSlice({
   name: "auth",
   initialState,
@@ -62,24 +82,42 @@ const authSlice = createSlice({
       state.token = null;
     },
   },
-  extraReducers: (builder) => {
-    builder
-      .addCase(registerUser.pending, (state) => {
-        state.isLoading = true;
-        state.error = null;
-      })
-      .addCase(registerUser.fulfilled, (state, action) => {
-        state.isLoading = false;
-        state.user = action.payload.user || null;
-      })
-      .addCase(registerUser.rejected, (state, action) => {
-        state.isLoading = false;
-        state.error = action.payload;
-      });
-  },
+extraReducers: (builder) => {
+  builder
+    // signup
+    .addCase(registerUser.pending, (state) => {
+      state.isLoading = true;
+      state.error = null;
+    })
+    .addCase(registerUser.fulfilled, (state, action) => {
+      state.isLoading = false;
+      state.user = action.payload.user || null;
+    })
+    .addCase(registerUser.rejected, (state, action) => {
+      state.isLoading = false;
+      state.error = action.payload;
+    })
+
+    // login
+    .addCase(loginUser.pending, (state) => {
+      state.isLoading = true;
+      state.error = null;
+    })
+    .addCase(loginUser.fulfilled, (state, action) => {
+      state.isLoading = false;
+      state.user = action.payload.user;
+      state.token = action.payload.token;
+
+      localStorage.setItem("token", action.payload.token);
+    })
+    .addCase(loginUser.rejected, (state, action) => {
+      state.isLoading = false;
+      state.error = action.payload;
+    });
+},
+
 });
 
 export const { logout } = authSlice.actions;
-
-// ✅ THIS is what your store is importing
+// THIS is what my store is importing
 export default authSlice.reducer;
