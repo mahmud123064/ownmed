@@ -6,11 +6,14 @@ import router from "../src/Router/routes";
 import { RouterProvider } from "react-router-dom";
 import { Provider } from "react-redux";
 import { store } from "./redux/store";
+import { GoogleOAuthProvider } from "@react-oauth/google";
 
 createRoot(document.getElementById("root")).render(
     <StrictMode>
-        <Provider store={store}>
-            <RouterProvider router={router} />
-        </Provider>
+        <GoogleOAuthProvider clientId="458086924422-c2a5iirhgdtd4qqvr8n1p9d448gp4vee.apps.googleusercontent.com">
+            <Provider store={store}>
+                <RouterProvider router={router} />
+            </Provider>
+        </GoogleOAuthProvider>
     </StrictMode>,
 );
