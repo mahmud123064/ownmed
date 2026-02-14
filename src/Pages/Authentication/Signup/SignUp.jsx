@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import signUpIllustration from "../../../assets/signup-illustration.jpg";
 import { useDispatch, useSelector } from "react-redux";
 import { registerUser } from "../../../redux/auth/authSlice";
+import toast, { Toaster } from "react-hot-toast";
 
 export default function SignUp() {
     const [imagePreview, setImagePreview] = useState(null);
@@ -197,9 +198,37 @@ export default function SignUp() {
             profileImage: imageUrl,
         };
 
+        // dispatch(registerUser(payload))
+        //     .unwrap()
+        //     .then(() => {
+        //         toast
+        //             .success(
+        //                 "Signup successful! Please check your email to verify your account.",
+        //                 { duration: 5000 },
+        //             )
+
+        //         setFormData({
+        //             name: "",
+        //             email: "",
+        //             password: "",
+        //             confirmPassword: "",
+        //             phone: "",
+        //             role: "",
+        //         });
+        //         setImagePreview(null);
+        //         setImageFile(null);
+        //         setErrors({});
+        //         navigate("/verify-email");
+        //     });
+
         dispatch(registerUser(payload))
             .unwrap()
             .then(() => {
+                toast.success(
+                    "Signup successful! Please check your email to verify your account.",
+                    { duration: 5000 },
+                );
+
                 setFormData({
                     name: "",
                     email: "",
@@ -211,7 +240,13 @@ export default function SignUp() {
                 setImagePreview(null);
                 setImageFile(null);
                 setErrors({});
-                navigate("/login");
+                navigate("/verify-email");
+            })
+            .catch((error) => {
+                console.log("Caught error:", error); // Debug line
+                toast.error(error || "Signup failed. Please try again.", {
+                    duration: 5000,
+                });
             });
     };
 
@@ -614,6 +649,11 @@ export default function SignUp() {
                                     ? "Creating Account..."
                                     : "Create Account"}
                             </button>
+
+                            <Toaster
+                                position="top-center"
+                                reverseOrder={false}
+                            />
                         </form>
 
                         {/* Sign In Link */}

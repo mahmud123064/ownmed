@@ -11,6 +11,23 @@ const initialState = {
 };
 
 // simulate API call for user signup
+// export const registerUser = createAsyncThunk(
+//     "auth/signup",
+//     async (payload, { rejectWithValue }) => {
+//         try {
+//             const res = await axios.post(
+//                 "http://localhost:3000/api/auth/signup",
+//                 payload,
+//             );
+//             return res.data;
+//         } catch (err) {
+//             return rejectWithValue(
+//                 err.response?.data?.message || "Signup failed",
+//             );
+//         }
+//     },
+// );
+
 export const registerUser = createAsyncThunk(
     "auth/signup",
     async (payload, { rejectWithValue }) => {
@@ -21,9 +38,11 @@ export const registerUser = createAsyncThunk(
             );
             return res.data;
         } catch (err) {
-            return rejectWithValue(
-                err.response?.data?.message || "Signup failed",
-            );
+            // Make sure to return the rejection properly
+            if (err.response && err.response.data && err.response.data.message) {
+                return rejectWithValue(err.response.data.message);
+            }
+            return rejectWithValue(err.message || "Signup failed");
         }
     },
 );
