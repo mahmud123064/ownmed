@@ -1,9 +1,10 @@
 import { useForm } from "react-hook-form";
 import axios from "axios";
-import toast from "react-hot-toast";
+import toast, { Toaster } from "react-hot-toast";
+import { Toast } from "radix-ui";
 
 export default function ForgotPassword() {
-    const { register, handleSubmit } = useForm();
+    const { register, handleSubmit, reset } = useForm();
 
     const onSubmit = async (data) => {
         try {
@@ -13,6 +14,7 @@ export default function ForgotPassword() {
             );
             console.log(res.data);
             toast.success("Password reset email sent!");
+            reset();
         } catch (error) {
             console.error(error);
             toast.error(
@@ -36,6 +38,7 @@ export default function ForgotPassword() {
                 <button className="w-full bg-primary text-white py-2 rounded">
                     Send Reset Link
                 </button>
+                <Toaster position="top-center" />
             </form>
         </div>
     );
