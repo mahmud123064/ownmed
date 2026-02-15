@@ -1,4 +1,4 @@
-
+/* 
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
 
 
@@ -22,4 +22,145 @@
   html {
     font-family: "Lato", sans-serif;
   }
+}
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@plugin "daisyui" {
+  themes: light --default;
+}
+
+@plugin "daisyui/theme" {
+  name: "ownMedTheme";
+  default: true;
+
+  --color-primary: #207dff;       
+  --color-secondary: #041c38;     
+  --color-accent: #6c757d;        
+  --color-base-content: #000000; 
+}
+
+@utility text-balance {
+  text-wrap: balance;
+}
+
+html {
+  font-family: "Lato", sans-serif;
+}
+
+/* Shadcn theme variables - NEW brand colors for Header and shadcn components ONLY */
+:root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+    
+    /* Shadcn Brand Colors - These won't affect your existing DaisyUI components */
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+    
+    /* Primary for shadcn: #00a8e8 */
+    --primary: 197 100% 45.5%;
+    --primary-foreground: 0 0% 100%;
+    
+    /* Secondary for shadcn: #25a18e */
+    --secondary: 171 62.6% 38.8%;
+    --secondary-foreground: 0 0% 100%;
+    
+    /* Muted (lighter version of third color) */
+    --muted: 176 57.3% 95%;
+    --muted-foreground: 171 62.6% 25%;
+    
+    /* Accent for shadcn: #4FD1C5 */
+    --accent: 174 58.6% 56.5%;
+    --accent-foreground: 0 0% 9%;
+    
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    
+    /* Border using third color: #68d6ce */
+    --border: 176 57.3% 85%;
+    --input: 176 57.3% 85%;
+    --ring: 197 100% 45.5%;
+    
+    /* Chart colors using new palette */
+    --chart-1: 197 100% 45.5%;  /* #00a8e8 */
+    --chart-2: 171 62.6% 38.8%; /* #25a18e */
+    --chart-3: 176 57.3% 62.4%; /* #68d6ce */
+    --chart-4: 174 58.6% 56.5%; /* #4FD1C5 */
+    --chart-5: 197 80% 60%;
+    
+    --radius: 0.5rem;
+    
+    /* Sidebar with new color theme */
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 171 62.6% 25%;
+    --sidebar-primary: 197 100% 45.5%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 176 57.3% 95%;
+    --sidebar-accent-foreground: 171 62.6% 30%;
+    --sidebar-border: 176 57.3% 85%;
+    --sidebar-ring: 197 100% 45.5%;
+  }
+
+  .dark {
+    --background: 0 0% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 8%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    
+    /* Primary: #00a8e8 (slightly adjusted for dark mode) */
+    --primary: 197 100% 55%;
+    --primary-foreground: 0 0% 100%;
+    
+    /* Secondary: #25a18e (slightly brighter for dark mode) */
+    --secondary: 171 62.6% 45%;
+    --secondary-foreground: 0 0% 100%;
+    
+    /* Muted (darker) */
+    --muted: 171 30% 15%;
+    --muted-foreground: 176 57.3% 70%;
+    
+    /* Accent: #4FD1C5 */
+    --accent: 174 58.6% 60%;
+    --accent-foreground: 0 0% 9%;
+    
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    
+    --border: 171 30% 18%;
+    --input: 171 30% 18%;
+    --ring: 197 100% 55%;
+    
+    /* Chart colors for dark mode */
+    --chart-1: 197 100% 60%;
+    --chart-2: 171 62.6% 50%;
+    --chart-3: 176 57.3% 65%;
+    --chart-4: 174 58.6% 65%;
+    --chart-5: 197 80% 70%;
+    
+    /* Sidebar dark mode */
+    --sidebar-background: 0 0% 10%;
+    --sidebar-foreground: 176 57.3% 85%;
+    --sidebar-primary: 197 100% 55%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 0 0% 15%;
+    --sidebar-accent-foreground: 176 57.3% 85%;
+    --sidebar-border: 0 0% 20%;
+    --sidebar-ring: 197 100% 55%;
+}
+
+* {
+  border-color: hsl(var(--border));
+}
+
+body {
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
 }
