@@ -24,17 +24,41 @@ export default function SignIn() {
         reset,
     } = useForm();
 
+    // const onSubmit = (data) => {
+    //     console.log("Form Data:", data);
+    //     dispatch(loginUser(data))
+    //         .unwrap()
+    //         .then(() => {
+    //             toast.success("Successfully signed in!", { removeDelay: 2000 });
+    //             reset();
+    //             navigate("/");
+    //         })
+    //         .catch(() => {});
+    // };
     const onSubmit = (data) => {
-        console.log("Form Data:", data);
-        dispatch(loginUser(data))
-            .unwrap()
-            .then(() => {
-                toast.success("Successfully signed in!", { removeDelay: 2000 });
-                reset();
-                navigate("/");
-            })
-            .catch(() => {});
-    };
+  dispatch(loginUser(data))
+    .unwrap()
+    .then((res) => {
+      toast.success("Successfully signed in!", { removeDelay: 2000 });
+      reset();
+
+      const role = res.user.role;
+
+      if (role === "admin") {
+        navigate("/dashboard");
+      } else if (role === "doctor") {
+        navigate("/dashboard");
+      } else if (role === "pharmacy_owner") {
+        navigate("/dashboard");
+      } else if (role === "hospital_owner") {
+        navigate("/dashboard");
+      } else {
+        navigate("/dashboard");
+      }
+    })
+    .catch(() => {});
+};
+
 
     const handleGoogleSuccess = (credentialResponse) => {
         console.log("Credential Response:", credentialResponse);

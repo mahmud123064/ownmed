@@ -1,5 +1,3 @@
-
-
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
@@ -39,7 +37,11 @@ export const registerUser = createAsyncThunk(
             return res.data;
         } catch (err) {
             // Make sure to return the rejection properly
-            if (err.response && err.response.data && err.response.data.message) {
+            if (
+                err.response &&
+                err.response.data &&
+                err.response.data.message
+            ) {
                 return rejectWithValue(err.response.data.message);
             }
             return rejectWithValue(err.message || "Signup failed");
@@ -91,6 +93,8 @@ const authSlice = createSlice({
         logout: (state) => {
             state.user = null;
             state.token = null;
+            localStorage.removeItem("token");
+            localStorage.removeItem("user");
         },
     },
     extraReducers: (builder) => {
@@ -125,6 +129,18 @@ const authSlice = createSlice({
                 state.isLoading = false;
                 state.error = action.payload;
             })
+
+            // .addCase(loginUser.fulfilled, (state, action) => {
+            //     state.isLoading = false;
+            //     state.user = action.payload.user;
+            //     state.token = action.payload.token;
+
+            //     localStorage.setItem("token", action.payload.token);
+            //     localStorage.setItem(
+            //         "user",
+            //         JSON.stringify(action.payload.user),
+            //     );
+            // })
 
             // google
             .addCase(googleLoginUser.pending, (state) => {
