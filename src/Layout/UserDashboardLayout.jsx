@@ -1,11 +1,10 @@
-// src/layouts/DashboardLayout.jsx
-import { Header } from '@/components/Dashboard/Header'
-import { Sidebar } from '@/components/Dashboard/Sidebar'
+import { Header } from '@/components/Dashboard/User/Header'
+import { Sidebar } from '@/components/Dashboard/User/Sidebar'
 import { useState } from 'react'
 // import MessageButton from '@/components/MessageButton'
 import { Outlet } from 'react-router-dom'
 
-export default function DashboardLayout() {
+export default function UserDashboardLayout() {
   const [sidebarOpen, setSidebarOpen] = useState(false)
   const [activeSection, setActiveSection] = useState('overview')
 

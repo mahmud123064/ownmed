@@ -1,4 +1,3 @@
-'use client';
 
 import { Heart, Droplet, Activity, Zap } from 'lucide-react';
 
