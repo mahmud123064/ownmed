@@ -1,3 +1,4 @@
+import DashboardLayout from "@/Layout/DashboardLayout";
 import RootLayout from "@/Layout/RootLayout";
 import AboutUs from "@/Pages/AboutUs/AboutUs";
 import ForgotPassword from "@/Pages/Authentication/ForgotPassword/ForgotPassword";
@@ -5,6 +6,7 @@ import ResetPassword from "@/Pages/Authentication/ResetPassword/ResetPassword";
 import SignIn from "@/Pages/Authentication/SignIn/SignIn";
 import SignUp from "@/Pages/Authentication/Signup/SignUp";
 import VerifyEmail from "@/Pages/Authentication/VerifyEmail/VerifyEmail";
+import Overview from "@/Pages/DashboardPages/Overview";
 import HealthTips from "@/Pages/HealthTips/HealthTips";
 import Home from "@/Pages/Home/Home/Home";
 
@@ -48,7 +50,16 @@ const routes = createBrowserRouter([
                 Component:VerifyEmail
             }
         ],
-    },
+    },{
+        parh:"/dashboard",
+        Component:DashboardLayout,
+        children:[
+            {
+                path:"/dashboard",
+                Component:Overview
+            }
+        ]
+    }
 ]);
 
 export default routes;

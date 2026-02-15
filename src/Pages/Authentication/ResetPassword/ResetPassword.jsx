@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
-import toast from "react-hot-toast";
+import toast, { Toaster } from "react-hot-toast";
 
 export default function ResetPassword() {
     const { token } = useParams();
@@ -18,7 +18,7 @@ export default function ResetPassword() {
                 },
             );
             toast.success("Password reset successful!");
-            navigate("/signin");
+            navigate("/login");
         } catch (error) {
             console.error(error);
             toast.error(
@@ -43,6 +43,7 @@ export default function ResetPassword() {
                 <button className="w-full bg-primary text-white py-2 rounded">
                     Reset Password
                 </button>
+                <Toaster position="top-center" />
             </form>
         </div>
     );
