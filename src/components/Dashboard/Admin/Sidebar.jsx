@@ -10,7 +10,7 @@ import {
     Calendar,
     Users,
 } from "lucide-react";
-import { Link } from "react-router-dom";
+import { href, Link } from "react-router-dom";
 
 const menuItems = [
     {
@@ -26,10 +26,15 @@ const menuItems = [
         id: "profile",
         label: "Profile",
         icon: User,
+        to: "/dashboard/profile",
         submenu: [
-            { id: "personal-info", label: "Personal Information" },
-            { id: "profile-image", label: "Profile Image" },
-            { id: "password", label: "Change Password" },
+            {
+                id: "personal-info",
+                label: "Personal Information",
+                to: "/dashboard/profile",
+            },
+            // { id: "profile-image", label: "Profile Image" },
+            // { id: "password", label: "Change Password" },
         ],
     },
     {
@@ -143,14 +148,11 @@ export function Sidebar({
                 }}
             >
                 {/* Fixed Logo Section */}
-                <div 
-                    className="flex-shrink-0 px-4 py-2 border-b border-b border-border shadow-sm" 
+                <div
+                    className="flex-shrink-0 px-4 py-2 border-b border-b border-border shadow-sm"
                     style={{ borderColor: "hsl(var(--sidebar-border))" }}
                 >
-                    <Link
-                        to="/"
-                        className="flex items-center gap-2"
-                    >
+                    <Link to="/" className="flex items-center gap-2">
                         <img
                             className="h-10 md:h-12 w-auto"
                             src="https://i.ibb.co.com/N2J2mDdq/ownmed.png"

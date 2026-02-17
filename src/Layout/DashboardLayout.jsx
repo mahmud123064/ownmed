@@ -1,10 +1,12 @@
 import { Header } from '@/components/Dashboard/User/Header'
 import { Sidebar } from '@/components/Dashboard/User/Sidebar'
+// import { MessageButton } from '@/components/MessageButton/MessageButton'
+import  MessageButton  from '../components/MessageButton/MessageButton.jsx'
 import { useState } from 'react'
 // import MessageButton from '@/components/MessageButton'
 import { Outlet } from 'react-router-dom'
 
-export default function UserDashboardLayout() {
+export default function DashboardLayout() {
   const [sidebarOpen, setSidebarOpen] = useState(false)
   const [activeSection, setActiveSection] = useState('overview')
 
@@ -24,7 +26,7 @@ export default function UserDashboardLayout() {
           </div>
         </main>
       </div>
-      {/* <MessageButton /> */}
+      <MessageButton />
     </div>
   )
 }

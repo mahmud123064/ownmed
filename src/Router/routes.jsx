@@ -1,7 +1,7 @@
 // import DashboardLayout from "@/Layout/UserDashboardLayout";
-import AdminDashboardLayout from "@/Layout/AdminDashboardLayout";
+// import AdminDashboardLayout from "@/Layout/AdminDashboardLayout";
 import RootLayout from "@/Layout/RootLayout";
-import UserDashboardLayout from "@/Layout/UserDashboardLayout";
+import DashboardLayout from "@/Layout/DashboardLayout";
 import AboutUs from "@/Pages/AboutUs/AboutUs";
 import ForgotPassword from "@/Pages/Authentication/ForgotPassword/ForgotPassword";
 import ResetPassword from "@/Pages/Authentication/ResetPassword/ResetPassword";
@@ -10,12 +10,13 @@ import SignUp from "@/Pages/Authentication/Signup/SignUp";
 import VerifyEmail from "@/Pages/Authentication/VerifyEmail/VerifyEmail";
 import Overview from "@/Pages/DashboardPages/AdminPages/OverviewAdmin";
 // import Overview from "@/Pages/DashboardPages/UserPages/Overview";
-import OverviewAdmin from "@/Pages/DashboardPages/UserPages/Overview";
+// import OverviewAdmin from "@/Pages/DashboardPages/UserPages/Overview";
 import HealthTips from "@/Pages/HealthTips/HealthTips";
 import Home from "@/Pages/Home/Home/Home";
 
 import { createBrowserRouter } from "react-router-dom";
 import RoleProtectedRoute from "./RoleProtectedRoute";
+import Profile from "@/Pages/DashboardPages/UserPages/Profile";
 
 const routes = createBrowserRouter([
     {
@@ -92,15 +93,19 @@ const routes = createBrowserRouter([
                     "admin",
                 ]}
             >
-                <UserDashboardLayout />
+                <DashboardLayout />
             </RoleProtectedRoute>
         ),
-        children: [
-            {
-                path:"/dashboard",
-                element: <Overview />,
-            },
-        ],
+         children: [
+    {
+      index: true,   // ✅ Default route: /dashboard
+      element: <Overview />,
+    },
+    {
+      path: "profile",  // ✅ becomes /dashboard/profile
+      element: <Profile />,
+    },
+  ],
     },
 ]);
 
