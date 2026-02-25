@@ -52,7 +52,7 @@ const routes = createBrowserRouter([
                 Component: ForgotPassword,
             },
             {
-                path: "/verify-email",
+                path: "/verify-email/:token",
                 Component: VerifyEmail,
             },
         ],
@@ -98,11 +98,11 @@ const routes = createBrowserRouter([
         ),
          children: [
     {
-      index: true,   // ✅ Default route: /dashboard
+      index: true,   // Default route: /dashboard
       element: <Overview />,
     },
     {
-      path: "profile",  // ✅ becomes /dashboard/profile
+      path: "profile",  // becomes /dashboard/profile
       element: <Profile />,
     },
   ],
