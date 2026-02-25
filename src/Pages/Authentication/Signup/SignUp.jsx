@@ -240,7 +240,9 @@ export default function SignUp() {
                 setImagePreview(null);
                 setImageFile(null);
                 setErrors({});
-                navigate("/verify-email");
+                // navigate("/verify-email/:token"); // Adjust this if you want to pass the token or handle it differently
+                toast.success("Signup successful! Please check your email...");
+                navigate("/login");
             })
             .catch((error) => {
                 console.log("Caught error:", error); // Debug line

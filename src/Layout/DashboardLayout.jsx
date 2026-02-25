@@ -5,9 +5,12 @@ import  MessageButton  from '../components/MessageButton/MessageButton.jsx'
 import { useState } from 'react'
 // import MessageButton from '@/components/MessageButton'
 import { Outlet } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 
 export default function DashboardLayout() {
   const [sidebarOpen, setSidebarOpen] = useState(false)
+  const { user } = useSelector((state) => state.auth);
+
   const [activeSection, setActiveSection] = useState('overview')
 
   return (
@@ -17,6 +20,7 @@ export default function DashboardLayout() {
         setActiveSection={setActiveSection} 
         sidebarOpen={sidebarOpen} 
         setSidebarOpen={setSidebarOpen} 
+        role={user?.role}
       />
       <div className="flex-1 flex flex-col overflow-hidden">
         <Header sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />

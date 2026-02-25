@@ -31,6 +31,8 @@ export const registerUser = createAsyncThunk(
     async (payload, { rejectWithValue }) => {
         try {
             const res = await axios.post(
+                // `${import.meta.env.VITE_SERVER_URL}/api/auth/signup`,
+                // payload,
                 "http://localhost:3000/api/auth/signup",
                 payload,
             );
@@ -55,8 +57,11 @@ export const loginUser = createAsyncThunk(
     async (payload, { rejectWithValue }) => {
         try {
             const res = await axios.post(
+                // `${import.meta.env.VITE_SERVER_URL}/api/auth/login`,
+                // payload,
                 "http://localhost:3000/api/auth/login",
                 payload,
+
             );
             return res.data; // { token, user }
         } catch (err) {
