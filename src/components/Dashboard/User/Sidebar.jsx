@@ -73,8 +73,17 @@ const menuItems = [
         label: "Add Medicine",
         icon: Plus,
         submenu: [
-            { id: "medicine-details", label: "Medicine Details" },
-            { id: "reminders", label: "Reminder Scheduling" },
+            {
+                id: "add-medicine",
+                label: "Add Medicine",
+                to: "/dashboard/add-medicine",
+            },
+            {
+                id: "medicine-details",
+                label: "Medicine Details",
+                to: "/dashboard/medicine-details",
+            },
+            { id: "reminders", label: "Reminder Scheduling", to: "/dashboard/medicine-reminders" },
         ],
     },
     {
@@ -236,12 +245,12 @@ export function Sidebar({ sidebarOpen, setSidebarOpen }) {
                                                 to={submenu.to}
                                                 end
                                                 className={({ isActive }) =>
-                                        `flex items-center gap-3 px-4 py-3 rounded-lg font-medium transition-all ${
-                                            isActive
-                                                ? "bg-primary text-white" // Active color
-                                                : "text-[#18685C] hover:bg-gray-200 hover:text-black" // Non-active
-                                        }`
-                                    }
+                                                    `flex items-center gap-3 px-4 py-3 rounded-lg font-medium transition-all ${
+                                                        isActive
+                                                            ? "bg-primary text-white" // Active color
+                                                            : "text-[#18685C] hover:bg-gray-200 hover:text-black" // Non-active
+                                                    }`
+                                                }
                                             >
                                                 {submenu.label}
                                             </NavLink>

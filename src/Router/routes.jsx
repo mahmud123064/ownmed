@@ -17,6 +17,9 @@ import Home from "@/Pages/Home/Home/Home";
 import { createBrowserRouter } from "react-router-dom";
 import RoleProtectedRoute from "./RoleProtectedRoute";
 import Profile from "@/Pages/DashboardPages/UserPages/Profile";
+import AddMedicine from "@/Pages/DashboardPages/UserPages/AddMedicine";
+import MedicineDetails from "@/Pages/DashboardPages/UserPages/MedicineDetails";
+import MedicineRemainder from "@/Pages/DashboardPages/UserPages/MedicineRemainder";
 
 const routes = createBrowserRouter([
     {
@@ -104,6 +107,18 @@ const routes = createBrowserRouter([
     {
       path: "profile",  // becomes /dashboard/profile
       element: <Profile />,
+    },
+    {
+      path: "add-medicine",  // becomes /dashboard/add-medicine
+      element: <AddMedicine />,
+    },
+    {
+      path: "medicine-details",  // becomes /dashboard/medicine-details
+      element: <MedicineDetails />,
+    },
+    {
+      path: "medicine-reminders",  // becomes /dashboard/medicine-reminders
+      element: <MedicineRemainder />,
     },
   ],
     },
