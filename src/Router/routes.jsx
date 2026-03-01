@@ -20,6 +20,11 @@ import Profile from "@/Pages/DashboardPages/UserPages/Profile";
 import AddMedicine from "@/Pages/DashboardPages/UserPages/AddMedicine";
 import MedicineDetails from "@/Pages/DashboardPages/UserPages/MedicineDetails";
 import MedicineRemainder from "@/Pages/DashboardPages/UserPages/MedicineRemainder";
+import UploadPrescription from "@/Pages/DashboardPages/UserPages/UploadPrescription";
+import UploadReport from "@/Pages/DashboardPages/UserPages/UploadReport";
+import FindDoctor from "@/Pages/DashboardPages/UserPages/FindDoctor";
+import MyAppointments from "@/Pages/DashboardPages/UserPages/MyAppointments";
+import FindPharmacy from "@/Pages/DashboardPages/UserPages/FindPharmacy";
 
 const routes = createBrowserRouter([
     {
@@ -119,6 +124,26 @@ const routes = createBrowserRouter([
     {
       path: "medicine-reminders",  // becomes /dashboard/medicine-reminders
       element: <MedicineRemainder />,
+    },
+    {
+      path: "upload-prescription",  // becomes /dashboard/upload-prescription
+      element: <UploadPrescription />,
+    },
+    {
+      path: "upload-report",  // becomes /dashboard/upload-report
+      element: <UploadReport />,
+    },
+    {
+      path: "find-doctor",  // becomes /dashboard/find-doctor
+      element: <FindDoctor />,
+    },
+    {
+      path: "my-appointments",  // becomes /dashboard/my-appointments
+      element: <MyAppointments />,
+    },
+    {
+      path: "find-pharmacy",  // becomes /dashboard/find-pharmacy
+      element: <FindPharmacy />,
     },
   ],
     },
