@@ -83,16 +83,28 @@ const menuItems = [
                 label: "Medicine Details",
                 to: "/dashboard/medicine-details",
             },
-            { id: "reminders", label: "Reminder Scheduling", to: "/dashboard/medicine-reminders" },
+            {
+                id: "reminders",
+                label: "Reminder Scheduling",
+                to: "/dashboard/medicine-reminders",
+            },
         ],
     },
     {
         id: "prescription",
-        label: "Upload Prescription",
+        label: "Upload Health Info",
         icon: Upload,
         submenu: [
-            { id: "upload-images", label: "Upload Images" },
-            { id: "cloudinary", label: "Cloudinary Storage" },
+            {
+                id: "upload-prescription",
+                label: "Upload prescription",
+                to: "/dashboard/upload-prescription",
+            },
+            {
+                id: "Report",
+                label: "Upload Report",
+                to: "/dashboard/upload-report",
+            },
         ],
     },
     {
@@ -100,16 +112,16 @@ const menuItems = [
         label: "Find Doctor",
         icon: Search,
         submenu: [
-            { id: "doctor-search", label: "Search by Department" },
-            { id: "doctor-profiles", label: "Doctor Profile & Availability" },
+            { id: "doctor-search", label: "Search by Department", to: "/dashboard/find-doctor" },
+            { id: "", label: "Doctor Profile & Availability" },
         ],
     },
     {
         id: "pharmacy",
-        label: "Find Pharmacy",
+        label: "Pharmacy",
         icon: MapPin,
         submenu: [
-            { id: "pharmacy-search", label: "Search by Name" },
+            { id: "find-pharmacy", label: "Find Pharmacy", to: "/dashboard/find-pharmacy" },
             { id: "pharmacy-location", label: "Location-based Search" },
         ],
     },
@@ -127,7 +139,7 @@ const menuItems = [
         label: "My Appointments",
         icon: Calendar,
         submenu: [
-            { id: "appointment-list", label: "Appointment List" },
+            { id: "appointment-list", label: "Appointment List", to: "/dashboard/my-appointments" },
             { id: "appointment-status", label: "Appointment Status" },
         ],
     },
