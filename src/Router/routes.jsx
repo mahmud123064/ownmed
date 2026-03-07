@@ -25,6 +25,8 @@ import UploadReport from "@/Pages/DashboardPages/UserPages/UploadReport";
 import FindDoctor from "@/Pages/DashboardPages/UserPages/FindDoctor";
 import MyAppointments from "@/Pages/DashboardPages/UserPages/MyAppointments";
 import FindPharmacy from "@/Pages/DashboardPages/UserPages/FindPharmacy";
+import AddFamilyMember from "@/Pages/DashboardPages/UserPages/AddFamilyMember";
+import FamilyMemberHealthStatus from "@/Pages/DashboardPages/UserPages/FamilyMemberHealthStatus";
 
 const routes = createBrowserRouter([
     {
@@ -144,6 +146,18 @@ const routes = createBrowserRouter([
     {
       path: "find-pharmacy",  // becomes /dashboard/find-pharmacy
       element: <FindPharmacy />,
+    },
+    {
+      path: "add-family-member",  // becomes /dashboard/add-family-member
+      element: <AddFamilyMember />,
+    },
+    {
+      path: "add-family-member",  // becomes /dashboard/add-family-member
+      element: <AddFamilyMember />,
+    },
+    {
+      path: "family-health-status",  // becomes /dashboard/family-health-status
+      element: <FamilyMemberHealthStatus />,
     },
   ],
     },
