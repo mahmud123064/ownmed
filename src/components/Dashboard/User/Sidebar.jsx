@@ -148,8 +148,8 @@ const menuItems = [
         label: "Family Member Status",
         icon: Users,
         submenu: [
-            { id: "add-family", label: "Add Family Members" },
-            { id: "family-health", label: "View Health Status" },
+            { id: "add-family", label: "Add Family Members", to: "/dashboard/add-family-member" },
+            { id: "family-health-status", label: "View Health Status", to: "/dashboard/family-health-status" },
         ],
     },
 ];
